@@ -1,0 +1,7 @@
+---
+- hosts: ansiblenode1.myindia.com
+  tasks:
+    - name: its an exmaple of creating a blank file
+      file:
+       path: /opt/myindia12345
+       state: touch

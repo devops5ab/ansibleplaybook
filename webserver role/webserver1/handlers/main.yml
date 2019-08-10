@@ -1,0 +1,6 @@
+---
+- name: openport
+  firewalld: port=80/tcp permanent=true state=enabled immediate=yes
+- name: startwebserver
+  service: name=httpd state=started
+  firewalld: port=80/tcp permanent=true state=enabled immediate=yes

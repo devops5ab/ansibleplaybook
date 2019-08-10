@@ -1,0 +1,16 @@
+- hosts: ansiblenode1.myindia.com
+  user: root
+  tasks:
+    - name: Install Apache Web Server
+      become: yes
+      become_user: root
+      become_method: sudo
+      yum: name=httpd state=latest
+      notify:
+        - openport80
+        - startwebserver
+  handlers:
+    - name: startwebserver
+      service: name=httpd state=started
+    - name: openport80
+      firewalld: port=80/tcp permanent=true state=enabled immediate=yes

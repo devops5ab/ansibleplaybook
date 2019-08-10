@@ -1,0 +1,10 @@
+- hosts: ansiblenode1.myindia.com
+  user: root
+  vars:	
+   myvar1: 'welcome to devopsansible training'
+  tasks:
+    - name: sample test insert to file
+      copy:
+       dest: /opt/softtekjithendra
+       content: "{{ myvar1 }}"
+
